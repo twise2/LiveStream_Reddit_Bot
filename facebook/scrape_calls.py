@@ -11,9 +11,7 @@ from selenium import webdriver
 def get_top_facebook_streamers():
     chromedriver_autoinstaller.install()
     GAME_ID = os.getenv('FACEBOOK_GAME_ID')
-    print('game_id', GAME_ID)
     URL = f'https://www.facebook.com/gaming/browse/live/?game_id={GAME_ID}&s=VIEWERS&language=ALL_LANG'
-    print('url', URL)
 
     chrome_options = Options()
     chrome_options.add_argument("--headless") # Opens the browser up in background
@@ -28,8 +26,6 @@ def get_top_facebook_streamers():
     #TODO: fix all this as it is not working at all
     games = []
     for item in soup.find_all('div', {"class": 'k4urcfbm'}):
-        #print('item', item, '\n')
-        #only check divs with one class
         streamData = {}
         try:
             if len(item["class"]) == 1:
@@ -52,6 +48,8 @@ def get_top_facebook_streamers():
                 for each in potential_numbers:
                     if(each.text and each.text.isdigit()):
                         streamData['viewers'] = int(each.text)
+
+                streamData['language'] = ''
 
 
         except KeyError:

@@ -17,7 +17,8 @@ def get_top_twitch_streamers():
         games.append({
             'link': f'https://www.twitch.tv/{user_name}',
             'streamer': user_name,
-            'viewers': each['viewer_count']
+            'viewers': each['viewer_count'],
+            'language' : each['language']
         })
     return games
 

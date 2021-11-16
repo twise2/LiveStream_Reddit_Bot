@@ -12,13 +12,10 @@ def get_auth_headers():
         'client_secret': CLIENT_SECRET,
         "grant_type": 'client_credentials'
     }
-    print('body', body)
     r = requests.post('https://id.twitch.tv/oauth2/token', body)
 
     #data output
     keys = r.json();
-
-    print('keys', keys)
 
     headers = {
         'Client-ID': CLIENT_ID,

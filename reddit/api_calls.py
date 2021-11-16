@@ -20,12 +20,12 @@ def set_streamers_sidebar_widget(top_streamers):
         #post to is
         response = requests.put(f'https://oauth.reddit.com/r/{SUBREDDIT}/api/widget/{widget_id}', headers=headers, data=data)
     else:
-        print('Failed to update stream as your widget with shortname: {WIDGET_NAME} was not found
+        print('Failed to update stream as your widget with shortname: {WIDGET_NAME} was not found')
 
 def build_stream_sidebar(top_streamers):
     text = "Streamer | Lang | Views\n---------|----------|----------\n"
     for each in top_streamers:
-        text+=f'🔴 [{each["streamer"]}]({each["link"]}) | EN | {each["viewers"]}\n'
+        text+=f'🔴 [{each["streamer"]}]({each["link"]}) | {each["language"].upper()} | {each["viewers"]}\n'
     return json.dumps({
         "styles": { "headerColor": "#AABBCC" , "backgroundColor": "#AABBCC"},
         "kind": 'textarea',
