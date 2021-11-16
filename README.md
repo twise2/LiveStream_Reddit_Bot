@@ -5,8 +5,8 @@ A small bot to interact with the reddit API. Get top viewers and update the side
 
 ### Set up credentials in .example.env
 
-*For twitch credential reference here: https://dev.twitch.tv/docs/authentication* <br/>
-*For reddit crential create a bot here: https://www.reddit.com/prefs/apps/* <br/>
+*For twitch credentials reference here: https://dev.twitch.tv/docs/authentication* <br/>
+*For reddit credentials reference here and create an app: https://www.reddit.com/prefs/apps/* <br/>
 ```
 source .example.env
 ```
