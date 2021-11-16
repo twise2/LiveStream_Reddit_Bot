@@ -26,12 +26,3 @@ def get_auth_headers():
     }
 
     return headers
-
-    params = {
-        'game_id': GAME_ID,
-        'is_live' : True
-    }
-
-    print(headers)
-    response = requests.get('https://api.twitch.tv/helix/streams', headers=headers, params=params)
-    print(json.dumps(response.json(), indent=4))
