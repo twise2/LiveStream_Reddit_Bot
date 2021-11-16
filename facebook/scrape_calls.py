@@ -51,7 +51,7 @@ def get_top_facebook_streamers():
                 potential_numbers = item.find_all('span', {"class": ['a8c37x1j' 'ni8dbmo4', 'stjgntxs', 'l9j0dhe7', 'ltmttdrg', 'g0qnabr5']})
                 for each in potential_numbers:
                     if(each.text and each.text.isdigit()):
-                        streamData['viewers'] = each.text
+                        streamData['viewers'] = int(each.text)
 
 
         except KeyError:
