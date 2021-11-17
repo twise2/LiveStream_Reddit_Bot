@@ -1,4 +1,5 @@
 import requests
+import praw
 import json
 import os
 
@@ -8,6 +9,10 @@ PASSWORD = os.environ.get('REDDIT_PASSWORD')
 SECRET_TOKEN=os.environ.get('REDDIT_SECRET_TOKEN')
 PERSONAL_USER_SCRIPT=os.environ.get('REDDIT_PERSONAL_USER_SCRIPT')
 
+
+def get_praw_connection():
+    reddit = praw.Reddit(client_id=PERSONAL_USER_SCRIPT, client_secret=SECRET_TOKEN, password=PASSWORD, user_agent='wololoBot', username=USER_NAME)
+    return reddit
 
 def get_auth_headers():
     auth = requests.auth.HTTPBasicAuth(PERSONAL_USER_SCRIPT, SECRET_TOKEN)

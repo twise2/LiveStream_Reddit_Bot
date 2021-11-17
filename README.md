@@ -5,6 +5,14 @@ A small bot to interact with the reddit API. Get top viewers for a game and upda
 
 ### Create a new widget with the shortname of "LiveStreams" on your subreddit
 
+### For old reddit. Add the below lines to the sidebar. If the old sidebar does not exist it will fail. The live streams will be populated in these lines.
+```
+######Live Streams
+[](#startmarker)
+**No streams are currently live.**
+[](#endmarker)
+```
+
 This can be changed as well, but default to the name above. The POST API endpoint is broken, so you need to manually create the widget to be modified.
 
 
