@@ -1,4 +1,4 @@
-# LiveStream Bot
+# LiveStream_Reddit_Bot
 Get top twitch and facebook stream viewers for a game and update the sidebar widget and old reddit sidebar to show your community where to watch.
 
 ## TO USE
