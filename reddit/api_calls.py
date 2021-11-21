@@ -9,11 +9,9 @@ WIDGET_NAME=os.environ.get('WIDGET_NAME')
 
 
 def set_streamers_sidebar_widget_for_old_reddit(top_streams):
-
     reddit = get_praw_connection()
     sidebar = reddit.subreddit(SUBREDDIT).wiki["config/sidebar"]
     sidebarContent = sidebar.content_md
-
 
     #split sidebar on livestream marker
     liveStreamInfo  = build_sidebar_markdown(top_streams)
@@ -24,6 +22,8 @@ def set_streamers_sidebar_widget_for_old_reddit(top_streams):
     if(i != -1 and i2 !=-1):
         newSidebar = sidebarContent[:i + len(liveStreamStartString)] +  liveStreamInfo  + sidebarContent[i2:]
         sidebar.edit(content=newSidebar)
+    else:
+        print(f"Failed to find '{liveStreamStartString}' or '{liveStreamEndString}' in the old sidebar of r/{reddit}")
 
 def set_streamers_sidebar_widget(top_streamers):
     headers = get_auth_headers()

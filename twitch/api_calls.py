@@ -11,16 +11,20 @@ def get_top_twitch_streamers():
         'game_id': GAME_ID,
         'is_live' : True
     }
-    response = requests.get('https://api.twitch.tv/helix/streams', headers=headers, params=params)
-    for each in response.json()['data']:
-        user_name = each['user_name']
-        games.append({
-            'link': f'https://www.twitch.tv/{user_name}',
-            'streamer': user_name,
-            'viewers': each['viewer_count'],
-            'language' : each['language']
-        })
-    return games
+    try:
+        response = requests.get('https://api.twitch.tv/helix/streams', headers=headers, params=params)
+        for each in response.json()['data']:
+            user_name = each['user_name']
+            games.append({
+                'link': f'https://www.twitch.tv/{user_name}',
+                'streamer': user_name,
+                'viewers': each['viewer_count'],
+                'language' : each['language']
+            })
+        return games
+    except Exception as e:
+        print("Failed to request Twitch, exception:", str(e))
+        return []
 
 
 
