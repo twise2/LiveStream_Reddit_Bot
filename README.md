@@ -3,7 +3,10 @@ Get top twitch and facebook stream viewers for a game and update the sidebar wid
 
 ## TO USE
 
-### Create a new widget with the shortname of "LiveStreams" on your subreddit
+### Create a new widget with the 'Widget title' of "LiveStreams" on your subreddit
+```
+LiveStreams
+```
 
 ### For old reddit. Add the below lines to the sidebar. If the old sidebar does not exist it will fail. The live streams will be populated in these lines.
 ```
